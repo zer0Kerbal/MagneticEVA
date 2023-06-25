@@ -1,8 +1,8 @@
 {
-	"NAME"		   : "MagneticEVA (MEVA)",
-	"URL"			: "https://raw.githubusercontent.com/zer0Kerbal/MagneticEVA/master/MagneticEVA.version",
-	"DOWNLOAD"	   : "https://github.com/zer0Kerbal/MagneticEVA/releases/latest",
-	"CHANGE_LOG_URL" : "https://raw.githubusercontent.com/zer0Kerbal/MagneticEVA/master/Changelog.cfg",
+	"NAME"			 : "MagneticEVA (MEVA) by *Aqua*",
+	"URL"			 : "https://raw.githubusercontent.com/zer0Kerbal/MagneticEVA/master/MagneticEVA.version",
+	"DOWNLOAD"		 : "https://github.com/zer0Kerbal/MagneticEVA/releases/latest",
+	"CHANGE_LOG_URL" : "https://raw.githubusercontent.com/zer0Kerbal/MagneticEVA/master/changelog.md",
 	"GITHUB" :
 	{
 		"USERNAME"		  : "zer0Kerbal",
@@ -36,7 +36,7 @@
 	},
 	"INSTALL_LOC" :
 	{
-		"NAME" :		  "MagneticEVA",
-		"DIRECTORY" :	 "SubName/MagneticEVA"
+		"NAME"		: "MagneticEVA",
+		"DIRECTORY" : "MagneticEVA"
 	}
 }
