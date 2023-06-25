@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
+using KSP.Localization;
 
 namespace MagneticEVA
 {
@@ -23,7 +24,7 @@ namespace MagneticEVA
         /// If the Kerbal is colliding with something.
         /// </summary>
         private bool isColliding = false;
-        
+
         /// <summary>
         /// What object the Kerbal is colliding with.
         /// </summary>
@@ -98,7 +99,7 @@ namespace MagneticEVA
         /// </summary>
         public void Start()
         {
-            KerbalEVA evaModule = (KerbalEVA) this.part.Modules["KerbalEVA"];
+            KerbalEVA evaModule = (KerbalEVA)this.part.Modules["KerbalEVA"];
 
             leftFoot = new GameObject();
             leftFoot.name = "leftFoot";
@@ -111,7 +112,7 @@ namespace MagneticEVA
             rightFoot.transform.position = transform.Search("footCollider_r").position;
             rightFoot.transform.rotation = transform.Search("footCollider_r").rotation;
             rightFoot.transform.parent = evaModule.gameObject.transform;
-                        
+
             //KerbalEVA eva = (KerbalEVA) this.part.Modules["KerbalEVA"];
             //System.Collections.Generic.List<KFSMState> stateList = (System.Collections.Generic.List<KFSMState>) eva.fsm.GetType().GetField("States", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance).GetValue(eva.fsm);
             //stateList.ForEach(state => Debug.Log("[MagneticEVA] state: " + state.name));
@@ -128,7 +129,7 @@ namespace MagneticEVA
                 Debug.Log("MagneticBoots Collision detected");
                 Debug.Log("State: " + this.vessel.evaController.fsm.CurrentState.name);
                 Debug.Log("Collided with: " + GetPartByGameObject(c.collider.gameObject).name);
-                
+
                 this.part.GetComponent<Vessel>().Landed = true;
                 isColliding = true;
             }
@@ -233,7 +234,7 @@ namespace MagneticEVA
 
             foreach (Vessel vessel in nearbyVessels)
                 vessel.Parts.FindAll(PartsInRange).ForEach(part => attractionForces.Add(CreateAttractionTo(part)));
-            
+
             return CombineAttractionForces(attractionForces);
         }
 
@@ -259,7 +260,7 @@ namespace MagneticEVA
         {
             float distance = Vector3.Distance(part.transform.position, this.vessel.transform.position);
 
-            if (MagneticForceAt(distance) > ((UI_FloatRange) Fields["magneticForce"].uiControlFlight).minValue)
+            if (MagneticForceAt(distance) > ((UI_FloatRange)Fields["magneticForce"].uiControlFlight).minValue)
                 return true;
 
             return false;
@@ -272,7 +273,7 @@ namespace MagneticEVA
         /// <returns>magnetic field strength</returns>
         public float MagneticForceAt(float distance)
         {
-            return Mathf.Min(magneticForce / Mathf.Pow(distance, 2f), ((UI_FloatRange) Fields["magneticForce"].uiControlFlight).maxValue);
+            return Mathf.Min(magneticForce / Mathf.Pow(distance, 2f), ((UI_FloatRange)Fields["magneticForce"].uiControlFlight).maxValue);
 
         }
 
@@ -282,7 +283,7 @@ namespace MagneticEVA
         /// <returns>distance</returns>
         public float EstimatedRange()
         {
-            return Mathf.Sqrt(magneticForce / ((UI_FloatRange) Fields["magneticForce"].uiControlFlight).minValue);
+            return Mathf.Sqrt(magneticForce / ((UI_FloatRange)Fields["magneticForce"].uiControlFlight).minValue);
         }
 
         /// <summary>
@@ -332,8 +333,8 @@ namespace MagneticEVA
         }
 
 
-        
-        
+
+
         /* KFSMState values:
             [LOG 16:55:34.923] [MagneticEVA] state: Idle (Grounded)
             [LOG 16:55:34.923] [MagneticEVA] state: Walk (Arcade)
